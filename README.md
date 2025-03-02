@@ -17,6 +17,8 @@ my_project/
 │
 │── tests/                   # Unit and integration tests
 │── data/                    # Data files (if applicable)
+│   ├── raw/                 # Raw data
+│   ├── processed/           # Processed data
 │── scripts/                 # Standalone scripts and automation tools
 │── docs/                    # Documentation
 │── logs/                    # Log files
