@@ -1,3 +1,5 @@
 Flask
 GitPython
 pyyaml
+coverage
+sphinx

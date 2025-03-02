@@ -1,14 +1,40 @@
+"""
+Module: config_loader
+This module contains the ConfigLoader class that reads configuration files
+from a cloned Git repository.
+"""
+
 import os
 import yaml
 
+
 class ConfigLoader:
-    """Handles loading configuration files from the repository."""
+    """
+    Handles loading configuration files from the repository.
+
+    Attributes:
+        repo_path (str): The local path of the cloned repository.
+    """
 
     def __init__(self, repo_path):
+        """
+        Initializes the ConfigLoader with the repository path.
+
+        Args:
+            repo_path (str): The path where the repository is located.
+        """
         self.repo_path = repo_path
 
     def load_config(self, profile):
-        """Loads the configuration from `application.yaml` in the specified branch."""
+        """
+        Loads the configuration from an 'application.yaml' file in the specified branch.
+
+        Args:
+            profile (str): The branch (profile) name where the configuration file is located.
+
+        Returns:
+            dict: The configuration data if loaded successfully, or an error message.
+        """
         config_path = os.path.join(self.repo_path, profile, "application.yaml")
 
         if not os.path.exists(config_path):

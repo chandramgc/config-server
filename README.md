@@ -66,8 +66,87 @@ python src/main.py
 ## 🧪 Running Tests
 To run tests, execute:
 ```sh
-pytest tests/
+python -m unittest discover -s tests -v
 ```
+## ✅ Code Coverage
+
+We use [coverage.py](https://coverage.readthedocs.io/) to measure how much of our code is exercised by the tests. This helps ensure that our tests cover critical parts of the application.
+
+### 1. Install Coverage
+
+Install the coverage package via pip:
+
+```bash
+pip install coverage
+```
+### 2. Run Tests with Coverage
+Run your tests and collect coverage data using the following command from your project's root directory:
+
+```bash
+coverage run -m unittest discover -s tests
+```
+### 3. Generate a Coverage Report
+To display a text-based report in your terminal, run:
+
+```bash
+coverage report
+```
+To generate an HTML report that provides detailed coverage information, run:
+```bash
+coverage html
+```
+You can then open the generated htmlcov/index.html file in your browser to view the detailed report.
+
+## 📚 Documentation
+
+Our project documentation is generated using [Sphinx](https://www.sphinx-doc.org/), which supports automatic extraction of docstrings from our source code. This helps keep our API documentation up-to-date and provides detailed information on each module.
+
+### Getting Started with Documentation
+
+1. **Install Sphinx and Extensions**
+
+   Install Sphinx along with the recommended extension for type hints:
+   ```bash
+   pip install sphinx sphinx-autodoc-typehints
+   ```
+2. **Initialize Sphinx (If Not Already Done)**
+
+   If you haven't already configured Sphinx, navigate to the docs/ directory and run:
+   ```bash
+   cd docs
+   sphinx-quickstart
+   ```
+   Answer the prompts to set up your documentation.
+
+3. **Configure Sphinx**
+
+   In the docs/conf.py file, add your source directory to the sys.path and enable the autodoc and napoleon extensions. For example:
+
+   ```python
+   import os
+   import sys
+   sys.path.insert(0, os.path.abspath('../src'))
+
+   extensions = [
+      'sphinx.ext.autodoc',          # Automatically document API from docstrings
+      'sphinx.ext.napoleon',         # Support for Google style and NumPy style docstrings
+      'sphinx_autodoc_typehints',    # Better type hint support
+   ]
+
+   html_theme = 'alabaster'
+   ```
+4. **Generate the HTML Documentation**
+
+   Build the documentation by running:
+
+   ```bash
+   make html
+   ```
+   This will create an HTML version of your docs in the docs/_build/html/ directory.
+
+5. **View the Documentation**
+
+   Open docs/_build/html/index.html in your browser to review your documentation.
 
 ## 📜 License
 This project is open-source.
