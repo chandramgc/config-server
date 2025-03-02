@@ -1,0 +1,7 @@
+server:
+  host: "0.0.0.0"
+  port: 5000
+
+git:
+  repo_url: "https://github.com/your-username/config-repo.git"
+  local_repo_path: "/tmp/config-repo"

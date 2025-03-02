@@ -1,7 +1,7 @@
 # My Project
 
 ## 📌 Overview
-This project is a well-structured Python application designed for scalability and maintainability. It follows a modular approach, ensuring easy management of different components.
+This project is a Python-based configuration server that fetches configurations from a Git repository dynamically based on profiles.
 
 ## 📂 Project Structure
 ```
@@ -16,6 +16,11 @@ my_project/
 │   ├── main.py              # Entry point of the application
 │
 │── tests/                   # Unit and integration tests
+│   ├── test_modules/             # Business logic modules
+│   ├── test_utils/               # Utility functions/helpers
+│   ├── test_services/            # External services and API handlers
+│   ├── test_models/              # Data models or database ORM models
+│   ├── test_controllers/         # Controllers/Views for handling requests
 │── data/                    # Data files (if applicable)
 │   ├── raw/                 # Raw data
 │   ├── processed/           # Processed data
