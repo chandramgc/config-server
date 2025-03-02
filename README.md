@@ -147,6 +147,53 @@ Our project documentation is generated using [Sphinx](https://www.sphinx-doc.org
 5. **View the Documentation**
 
    Open docs/_build/html/index.html in your browser to review your documentation.
+## ⚙️ Setup and Installation 
 
+Our project is packaged using setuptools via `setup.py`. Follow the steps below to package, install, and run the application.
+
+### 1. Packaging the Project
+
+From the root directory of your project (where `setup.py` is located), run:
+
+```bash
+python setup.py sdist bdist_wheel
+```
+This command generates a source distribution (.tar.gz) and a wheel (.whl) file in the dist/ directory.
+
+### 2. Installing the Package
+To install the package locally, run:
+
+```bash
+pip install .
+```
+For an editable installation (which allows you to make changes to the code without reinstalling), run:
+
+```bash
+pip install -e .
+```
+### 3. Running the Application
+If you have defined an entry point in setup.py, you can run your application directly from the command line. For example, if your entry point is configured as:
+
+```python
+entry_points={
+    "console_scripts": [
+        "config-server=main:main",
+    ]
+},
+```
+After installing the package, simply run:
+
+```bash
+config-server
+```
+This command will invoke the main() function defined in your src/main.py.
+
+### 4. Uninstalling the Package
+If you need to uninstall your package, you can do so by running:
+
+```bash
+pip uninstall config-server
+```
+By following these steps, you can easily distribute and run your project using the provided setup.py configuration.
 ## 📜 License
 This project is open-source.
