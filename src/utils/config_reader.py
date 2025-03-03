@@ -6,7 +6,10 @@ from YAML configuration files.
 
 import os
 import yaml
+import logging
 
+# Retrieve a logger for this module.
+logger = logging.getLogger(__name__)
 
 class ConfigReader:
     """

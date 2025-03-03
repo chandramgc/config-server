@@ -59,13 +59,14 @@ my_project/
 
 ## 🚀 Usage
 Run the main script:
-```sh
-python src/main.py
+```bash
+export PYTHONPATH=.
+python -m src.main
 ```
 
 ## 🧪 Running Tests
 To run tests, execute:
-```sh
+```bash
 python -m unittest discover -s tests -v
 ```
 ## ✅ Code Coverage

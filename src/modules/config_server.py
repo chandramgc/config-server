@@ -4,10 +4,13 @@ This module implements the ConfigServer class which creates a Flask API server
 to serve configuration data fetched from a Git repository.
 """
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from src.modules.config_manager import GitConfigManager
 from src.modules.config_loader import ConfigLoader
+import logging
 
+# Retrieve a logger for this module.
+logger = logging.getLogger(__name__)
 
 class ConfigServer:
     """
@@ -48,8 +51,10 @@ class ConfigServer:
             Returns:
                 Response: A JSON response containing the configuration or an error.
             """
+            app_name = request.args.get("app", "application")
+            logger.info(f"Fetching configuration for profile: {profile}, app: {app_name}")
             self.config_manager.update_repo(profile)
-            config_data = self.config_loader.load_config(profile)
+            config_data = self.config_loader.load_config(profile, app_name)
 
             if "error" in config_data:
                 return jsonify(config_data), 404

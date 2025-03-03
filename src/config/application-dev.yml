@@ -4,4 +4,11 @@ server:
 
 git:
   repo_url: "https://github.com/chandramgc/config-repo.git"
-  local_repo_path: "/tmp/config-repo"
+  local_repo_path: "D:\\tmp\\config-repo"
+logging:
+  log_file: "logs\\app.log"
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  max_bytes: 10000
+  backup_count: 5
+  level: "info"
+

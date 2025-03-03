@@ -6,7 +6,10 @@ from a cloned Git repository.
 
 import os
 import yaml
+import logging
 
+# Retrieve a logger for this module.
+logger = logging.getLogger(__name__)
 
 class ConfigLoader:
     """
@@ -25,7 +28,7 @@ class ConfigLoader:
         """
         self.repo_path = repo_path
 
-    def load_config(self, profile):
+    def load_config(self, profile, application="application"):
         """
         Loads the configuration from an 'application.yaml' file in the specified branch.
 
@@ -35,11 +38,10 @@ class ConfigLoader:
         Returns:
             dict: The configuration data if loaded successfully, or an error message.
         """
-        config_path = os.path.join(self.repo_path, profile, "application.yaml")
+        config_path = os.path.join(self.repo_path, f"{application}.yaml")
 
         if not os.path.exists(config_path):
             return {"error": f"Configuration file not found for profile: {profile}"}
-
         try:
             with open(config_path, "r") as file:
                 return yaml.safe_load(file)
